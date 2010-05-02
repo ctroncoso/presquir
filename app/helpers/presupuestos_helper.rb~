@@ -1,0 +1,9 @@
+module PresupuestosHelper
+  def plazos(elements=)
+    list = []
+    elements.each {|element|
+      list << "<option>#{element}</option>"
+    }
+    list.join
+  end
+end

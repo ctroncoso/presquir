@@ -1,0 +1,13 @@
+one:
+  rut: MyString
+  nombre: MyString
+  apellido_materno: MyString
+  apellido_paterno: MyString
+  fecha_contratacion: 2010-04-29
+
+two:
+  rut: MyString
+  nombre: MyString
+  apellido_materno: MyString
+  apellido_paterno: MyString
+  fecha_contratacion: 2010-04-29

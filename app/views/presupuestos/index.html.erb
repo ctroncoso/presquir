@@ -1,0 +1,23 @@
+<% title "Presupuestos" %>
+
+<table>
+  <tr>
+    <th>Fecha Emision</th>
+    <th>Fecha Inicio Gestion</th>
+    <th>Ejecutiva</th>
+    <th>Plazo Gestion</th>
+  </tr>
+  <% for presupuesto in @presupuestos %>
+    <tr>
+      <td><%=h presupuesto.fecha_emision %></td>
+      <td><%=h presupuesto.fecha_inicio_gestion %></td>
+      <td><%=h presupuesto.ejecutiva.nombre_completo %></td>
+      <td><%=h presupuesto.plazo_gestion %></td>
+      <td><%= link_to "Show", presupuesto %></td>
+      <td><%= link_to "Edit", edit_presupuesto_path(presupuesto) %></td>
+      <td><%= link_to "Destroy", presupuesto, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Presupuesto", new_presupuesto_path %></p>

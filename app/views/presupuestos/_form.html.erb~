@@ -1,0 +1,20 @@
+<% form_for @presupuesto do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :fecha_emision %><br />
+    <%= f.date_select :fecha_emision %>
+  </p>
+  <p>
+    <%= f.label :fecha_inicio_gestion %><br />
+    <%= f.date_select :fecha_inicio_gestion %>
+  </p>
+  <p>
+    <%= f.label :ejecutiva %><br />
+    <%= f.collection_select :ejecutiva_id, @ejecutivas, :id, :nombre_completo %>
+  </p>
+  <p>
+    <%= f.label :plazo_gestion %><br />
+    <%= select_tag :plazo_gestion, plazos([30,45])%>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

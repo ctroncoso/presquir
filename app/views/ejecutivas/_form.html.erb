@@ -1,0 +1,24 @@
+<% form_for @ejecutiva do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :rut %><br />
+    <%= f.text_field :rut %>
+  </p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :apellido_materno %><br />
+    <%= f.text_field :apellido_materno %>
+  </p>
+  <p>
+    <%= f.label :apellido_paterno %><br />
+    <%= f.text_field :apellido_paterno %>
+  </p>
+  <p>
+    <%= f.label :fecha_contratacion %><br />
+    <%= f.date_select :fecha_contratacion %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

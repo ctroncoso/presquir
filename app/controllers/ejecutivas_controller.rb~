@@ -1,0 +1,46 @@
+class EjecutivasController < ApplicationController
+  has_many :presupuestos
+  
+  def index
+    @ejecutivas = Ejecutiva.all
+  end
+  
+  def show
+    @ejecutiva = Ejecutiva.find(params[:id])
+  end
+  
+  def new
+    @ejecutiva = Ejecutiva.new
+  end
+  
+  def create
+    @ejecutiva = Ejecutiva.new(params[:ejecutiva])
+    if @ejecutiva.save
+      flash[:notice] = "Successfully created ejecutiva."
+      redirect_to @ejecutiva
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def edit
+    @ejecutiva = Ejecutiva.find(params[:id])
+  end
+  
+  def update
+    @ejecutiva = Ejecutiva.find(params[:id])
+    if @ejecutiva.update_attributes(params[:ejecutiva])
+      flash[:notice] = "Successfully updated ejecutiva."
+      redirect_to @ejecutiva
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @ejecutiva = Ejecutiva.find(params[:id])
+    @ejecutiva.destroy
+    flash[:notice] = "Successfully destroyed ejecutiva."
+    redirect_to ejecutivas_url
+  end
+end
