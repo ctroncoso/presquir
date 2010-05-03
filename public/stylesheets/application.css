@@ -30,6 +30,7 @@ a {
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  width: 200px;
 }
 
 #flash_notice {
@@ -79,3 +80,13 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+td {
+  vertical-align: top;
+}
+
+#usernav {
+    float: right;
+    font-size: 12px;
+}
+

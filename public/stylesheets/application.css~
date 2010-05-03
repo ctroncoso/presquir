@@ -1,5 +1,5 @@
 body {
-  background-color: #4B7399;
+  background-color: #FF9900;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -30,6 +30,7 @@ a {
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  width: 100px;
 }
 
 #flash_notice {
@@ -79,3 +80,13 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+td {
+  vertical-align: top;
+}
+
+#usernav {
+    float: right;
+    font-size: 12px;
+}
+

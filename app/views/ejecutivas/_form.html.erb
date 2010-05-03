@@ -1,24 +1,52 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag 'calendar_date_select/default' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "calendar_date_select/calendar_date_select" %>
+    <%= javascript_include_tag "calendar_date_select/locale/es"%>
+<% end %>
 <% form_for @ejecutiva do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :rut %><br />
-    <%= f.text_field :rut %>
-  </p>
-  <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </p>
-  <p>
-    <%= f.label :apellido_materno %><br />
-    <%= f.text_field :apellido_materno %>
-  </p>
-  <p>
-    <%= f.label :apellido_paterno %><br />
-    <%= f.text_field :apellido_paterno %>
-  </p>
-  <p>
-    <%= f.label :fecha_contratacion %><br />
-    <%= f.date_select :fecha_contratacion %>
-  </p>
-  <p><%= f.submit %></p>
+  <table>
+    <tr>
+      <td>
+        <p>
+          <%= f.label      :login %><br />
+          <%= f.text_field :username %>
+        </p>
+        <p>
+          <%= f.label      :rut %><br />
+          <%= f.text_field :rut %>
+        </p>
+        <p>
+          <%= f.label      :nombre %><br />
+          <%= f.text_field :nombre %>
+        </p>
+        <p>
+          <%= f.label      :apellido_materno %><br />
+          <%= f.text_field :apellido_materno %>
+        </p>
+        <p>
+          <%= f.label      :apellido_paterno %><br />
+          <%= f.text_field :apellido_paterno %>
+        </p>
+      </td>
+
+      <td>
+        <p>
+          <%= f.label      :contraseña %><br />
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.label       :confirmar_contraseña %><br />
+          <%= f.password_field :password_confirmation %>
+        </p>
+        <p>
+          <%= f.label      :fecha_contratacion %><br />
+          <%= f.calendar_date_select :fecha_contratacion , :locale => :es%>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <p><%= f.submit "OK"%></p>
 <% end %>
+

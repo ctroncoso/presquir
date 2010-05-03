@@ -2,15 +2,15 @@ class EjecutivasController < ApplicationController
   def index
     @ejecutivas = Ejecutiva.all
   end
-  
+
   def show
     @ejecutiva = Ejecutiva.find(params[:id])
   end
-  
+
   def new
     @ejecutiva = Ejecutiva.new
   end
-  
+
   def create
     @ejecutiva = Ejecutiva.new(params[:ejecutiva])
     if @ejecutiva.save
@@ -20,11 +20,11 @@ class EjecutivasController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @ejecutiva = Ejecutiva.find(params[:id])
   end
-  
+
   def update
     @ejecutiva = Ejecutiva.find(params[:id])
     if @ejecutiva.update_attributes(params[:ejecutiva])
@@ -34,7 +34,7 @@ class EjecutivasController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @ejecutiva = Ejecutiva.find(params[:id])
     @ejecutiva.destroy
@@ -42,3 +42,4 @@ class EjecutivasController < ApplicationController
     redirect_to ejecutivas_url
   end
 end
+
