@@ -11,7 +11,7 @@
     <tr>
       <td><%=h presupuesto.fecha_emision %></td>
       <td><%=h presupuesto.fecha_inicio_gestion %></td>
-      <td><%=h presupuesto.ejecutiva_id %></td>
+      <td><%=h presupuesto.ejecutiva.nombre_completo %></td>
       <td><%=h presupuesto.plazo_gestion %></td>
       <td><%= link_to "Show", presupuesto %></td>
       <td><%= link_to "Edit", edit_presupuesto_path(presupuesto) %></td>

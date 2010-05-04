@@ -14,7 +14,7 @@ class PresupuestosController < ApplicationController
 
   def new
     @presupuesto = Presupuesto.new
-    @ejecutivas=Ejecutiva.find(:all)
+    @users=User.find(:all)
   end
 
   def create
@@ -29,7 +29,7 @@ class PresupuestosController < ApplicationController
 
   def edit
     @presupuesto = Presupuesto.find(params[:id])
-    @ejecutivas=Ejecutiva.find(:all)
+    @users=User.find(:all)
   end
 
   def update

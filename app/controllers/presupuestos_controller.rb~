@@ -1,4 +1,5 @@
 class PresupuestosController < ApplicationController
+  before_filter :check_login
   def index
     if params[:ejecutiva_id]
       @presupuestos = Presupuesto.find(:all, :conditions => {:ejecutiva_id => params[:ejecutiva_id]})
@@ -13,7 +14,7 @@ class PresupuestosController < ApplicationController
 
   def new
     @presupuesto = Presupuesto.new
-    @ejecutivas=Ejecutiva.find(:all)
+    @users=User.find(:all)
   end
 
   def create
@@ -28,7 +29,7 @@ class PresupuestosController < ApplicationController
 
   def edit
     @presupuesto = Presupuesto.find(params[:id])
-    @ejecutivas=Ejecutiva.find(:all)
+    @ejecutivas=User.find(:all)
   end
 
   def update

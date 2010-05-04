@@ -22,6 +22,10 @@ end
     @current_user = current_user_session && current_user_session.record
   end
 
+  def admin?
+    current_user && current_user.admin
+  end
+
   def check_login
     if !current_user
       redirect_to login_path

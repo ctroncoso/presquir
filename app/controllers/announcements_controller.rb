@@ -1,16 +1,16 @@
 class AnnouncementsController < ApplicationController
   def index
-    @announcements = Announcement.all
+    @announcements = Announcement.all(:order => 'created_at desc')
   end
-  
+
   def show
     @announcement = Announcement.find(params[:id])
   end
-  
+
   def new
     @announcement = Announcement.new
   end
-  
+
   def create
     @announcement = Announcement.new(params[:announcement])
     if @announcement.save
@@ -20,11 +20,11 @@ class AnnouncementsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @announcement = Announcement.find(params[:id])
   end
-  
+
   def update
     @announcement = Announcement.find(params[:id])
     if @announcement.update_attributes(params[:announcement])
@@ -34,7 +34,7 @@ class AnnouncementsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @announcement = Announcement.find(params[:id])
     @announcement.destroy
@@ -42,3 +42,4 @@ class AnnouncementsController < ApplicationController
     redirect_to announcements_url
   end
 end
+

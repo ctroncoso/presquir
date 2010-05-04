@@ -4,7 +4,7 @@
     <%= javascript_include_tag "calendar_date_select/calendar_date_select" %>
     <%= javascript_include_tag "calendar_date_select/locale/es"%>
 <% end %>
-<% form_for @ejecutiva do |f| %>
+<% form_for @user do |f| %>
   <%= f.error_messages %>
   <table>
     <tr>
@@ -22,12 +22,12 @@
           <%= f.text_field :nombre %>
         </p>
         <p>
-          <%= f.label      :apellido_materno %><br />
-          <%= f.text_field :apellido_materno %>
-        </p>
-        <p>
           <%= f.label      :apellido_paterno %><br />
           <%= f.text_field :apellido_paterno %>
+        </p>
+        <p>
+          <%= f.label      :apellido_materno %><br />
+          <%= f.text_field :apellido_materno %>
         </p>
       </td>
 
@@ -43,6 +43,10 @@
         <p>
           <%= f.label      :fecha_contratacion %><br />
           <%= f.calendar_date_select :fecha_contratacion , :locale => :es%>
+        </p>
+        <p>
+          <%= f.label      :admin, "Administrador?" %><br />
+          <%= f.check_box :admin%>
         </p>
       </td>
     </tr>

@@ -1,5 +1,5 @@
 body {
-  background-color: #FF9900;
+  background-image:url('../images/hts_bg.png');
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -31,6 +31,7 @@ a {
   padding: 5px 8px;
   margin: 10px 0;
   width: 200px;
+  display: block;
 }
 
 #flash_notice {
@@ -91,18 +92,17 @@ td {
 }
 
 #dashboard {
-    list-style: none;
+    display: block;
     margin: 0;
     padding: 0;
 }
 
 #dashboard li {
+    list-style: none;
     margin: 0;
     padding: 0;
     float: left;
-    display: block;
     padding: 4px 8px;
-    text-decoration: none;
     border: solid black 1px;
     color: black;
     background-color: #AEBBE2;
@@ -110,6 +110,7 @@ td {
 }
 
 #dashboard li a {
+    text-decoration: none;
 }
 
 #dashboard li a:hover {

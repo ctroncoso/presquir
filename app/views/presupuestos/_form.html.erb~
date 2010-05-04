@@ -10,11 +10,12 @@
   </p>
   <p>
     <%= f.label :ejecutiva %><br />
-    <%= f.collection_select :ejecutiva_id, @ejecutivas, :id, :nombre_completo %>
+    <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
   </p>
   <p>
     <%= f.label :plazo_gestion %><br />
-    <%= select_tag :plazo_gestion, plazos([30,45])%>
+    <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
   </p>
   <p><%= f.submit %></p>
 <% end %>
+

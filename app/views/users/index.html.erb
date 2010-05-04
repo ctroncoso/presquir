@@ -1,0 +1,23 @@
+<% title "Usuarios" %>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%=h user.nombre_completo %></td>
+      <td> ...
+      <% if admin? -%>
+        <%= link_to "Show", user %> |
+        <%= link_to "Edit", edit_user_path(user) %> |
+        <%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %> |
+      <% end -%>
+      <%= link_to "Presupuestos", user_presupuestos_path(user) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Crear nuevo usuario", new_user_path if admin? %></p>
+

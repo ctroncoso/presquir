@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :menus
-
-  map.resources :announcements
-
   map.login     "login",  :controller => "user_sessions", :action => "new"
   map.logout    "logout", :controller => "user_sessions", :action => "destroy"
+  map.users     "users",  :controller => "users", :action => "index"
+  map.resources :menus
+  map.resources :announcements
   map.resources :user_sessions
-  map.resources :ejecutivas, :has_many => :presupuestos
+  map.resources :users, :has_many => :presupuestos
   map.resources :presupuestos
   # The priority is based upon order of creation: first created -> highest priority.
 

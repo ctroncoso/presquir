@@ -9,8 +9,8 @@
     <%= f.date_select :fecha_inicio_gestion %>
   </p>
   <p>
-    <%= f.label :ejecutiva %><br />
-    <%= f.collection_select :ejecutiva_id, @ejecutivas, :id, :nombre_completo %>
+    <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
+    <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
   </p>
   <p>
     <%= f.label :plazo_gestion %><br />
@@ -18,3 +18,4 @@
   </p>
   <p><%= f.submit %></p>
 <% end %>
+

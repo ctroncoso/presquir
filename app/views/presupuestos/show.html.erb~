@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Ejecutiva:</strong>
-  <%=h @presupuesto.ejecutiva %>
+  <%=h @presupuesto.ejecutiva.nombre_completo %>
 </p>
 <p>
   <strong>Plazo Gestion:</strong>

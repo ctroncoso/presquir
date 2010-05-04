@@ -9,27 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100504143831) do
+ActiveRecord::Schema.define(:version => 20100504174544) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "ejecutivas", :force => true do |t|
-    t.string   "rut"
-    t.string   "nombre"
-    t.string   "apellido_materno"
-    t.string   "apellido_paterno"
-    t.date     "fecha_contratacion"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.string   "username"
   end
 
   create_table "menus", :force => true do |t|
@@ -42,10 +28,25 @@ ActiveRecord::Schema.define(:version => 20100504143831) do
   create_table "presupuestos", :force => true do |t|
     t.date     "fecha_emision"
     t.date     "fecha_inicio_gestion"
-    t.integer  "ejecutiva_id"
+    t.integer  "user_id"
     t.integer  "plazo_gestion"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "rut"
+    t.string   "nombre"
+    t.string   "apellido_materno"
+    t.string   "apellido_paterno"
+    t.date     "fecha_contratacion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "username"
+    t.boolean  "admin"
   end
 
 end
