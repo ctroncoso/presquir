@@ -1,4 +1,5 @@
 class EjecutivasController < ApplicationController
+  before_filter :check_login
   def index
     @ejecutivas = Ejecutiva.all
   end
@@ -41,5 +42,6 @@ class EjecutivasController < ApplicationController
     flash[:notice] = "Successfully destroyed ejecutiva."
     redirect_to ejecutivas_url
   end
+
 end
 

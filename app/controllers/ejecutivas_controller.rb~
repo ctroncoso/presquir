@@ -1,4 +1,5 @@
 class EjecutivasController < ApplicationController
+  before_filter :check_login
   def index
     @ejecutivas = Ejecutiva.all
   end
@@ -27,7 +28,6 @@ class EjecutivasController < ApplicationController
 
   def update
     @ejecutiva = Ejecutiva.find(params[:id])
-    debugger
     if @ejecutiva.update_attributes(params[:ejecutiva])
       flash[:notice] = "Successfully updated ejecutiva."
       redirect_to @ejecutiva
@@ -41,6 +41,14 @@ class EjecutivasController < ApplicationController
     @ejecutiva.destroy
     flash[:notice] = "Successfully destroyed ejecutiva."
     redirect_to ejecutivas_url
+  end
+
+  private
+
+  def check_login
+    if !current_user
+      redirect_to login_path
+    end
   end
 end
 

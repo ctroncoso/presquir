@@ -9,15 +9,22 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <div id="usernav">
+    <div id="container" >
+        <ul id="dashboard" style="visibility:<%=current_user ? "visible" : "hidden" %>">
+	        <div><li><%= link_to_unless_current 'Home', root_path %></li></div>
+	        <div><li><%= link_to_unless_current 'Ejecutivas', ejecutivas_path %></li></div>
+	        <div><li><%= link_to_unless_current 'Presupuestos', presupuestos_path %></li></div>
+        </ul>
+      <div id="authenticate">
         <% if current_user -%>
-          <%= link_to 'Mi Perfil', edit_ejecutiva_path(current_user.id)  %>
+          <strong><%= current_user.nombre_completo%></strong> |
+          <%= link_to 'Mi Perfil', edit_ejecutiva_path(current_user.id)  %> |
           <%= link_to 'Logout', logout_path  %>
         <% else -%>
           <%= link_to 'Login', login_path  %>
         <% end -%>
       </div>
+      <br />
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>

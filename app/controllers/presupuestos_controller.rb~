@@ -1,7 +1,7 @@
 class PresupuestosController < ApplicationController
   def index
     if params[:ejecutiva_id]
-      @presupuestos = Presupuesto.find(:all, :condition => {:ejecutiva_id => params[:ejecutiva_id]})
+      @presupuestos = Presupuesto.find(:all, :conditions => {:ejecutiva_id => params[:ejecutiva_id]})
     else
       @presupuestos = Presupuesto.all
     end

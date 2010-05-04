@@ -1,4 +1,5 @@
 class PresupuestosController < ApplicationController
+  before_filter :check_login
   def index
     if params[:ejecutiva_id]
       @presupuestos = Presupuesto.find(:all, :conditions => {:ejecutiva_id => params[:ejecutiva_id]})

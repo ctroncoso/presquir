@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :announcements
+
   map.login     "login",  :controller => "user_sessions", :action => "new"
   map.logout    "logout", :controller => "user_sessions", :action => "destroy"
   map.resources :user_sessions
@@ -45,6 +47,6 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  map.root :ejecutivas
+#  map.root :announcements
 end
 
