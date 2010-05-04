@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100503054256) do
+ActiveRecord::Schema.define(:version => 20100504143831) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ejecutivas", :force => true do |t|
     t.string   "rut"
@@ -23,6 +30,13 @@ ActiveRecord::Schema.define(:version => 20100503054256) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "username"
+  end
+
+  create_table "menus", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "presupuestos", :force => true do |t|
