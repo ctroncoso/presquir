@@ -1,0 +1,12 @@
+<% title "Tipo Paciente" %>
+
+<p>
+  <strong>Clase:</strong>
+  <%=h @tipo_paciente.clase %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_tipo_paciente_path(@tipo_paciente) %> |
+  <%= link_to "Destroy", @tipo_paciente, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", tipo_pacientes_path %>
+</p>

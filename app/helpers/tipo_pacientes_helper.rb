@@ -1,0 +1,2 @@
+module TipoPacientesHelper
+end

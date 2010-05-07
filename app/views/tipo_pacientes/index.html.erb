@@ -1,0 +1,17 @@
+<% title "Tipo Pacientes" %>
+
+<table>
+  <tr>
+    <th>Clase</th>
+  </tr>
+  <% for tipo_paciente in @tipo_pacientes %>
+    <tr>
+      <td><%=h tipo_paciente.clase %></td>
+      <td><%= link_to "Show", tipo_paciente %></td>
+      <td><%= link_to "Edit", edit_tipo_paciente_path(tipo_paciente) %></td>
+      <td><%= link_to "Destroy", tipo_paciente, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Tipo Paciente", new_tipo_paciente_path %></p>

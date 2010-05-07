@@ -1,0 +1,8 @@
+<% form_for @tipo_paciente do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :clase %><br />
+    <%= f.text_field :clase %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
