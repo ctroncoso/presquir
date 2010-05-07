@@ -6,5 +6,11 @@ class User < ActiveRecord::Base
   def nombre_completo
     [nombre, apellido_paterno, apellido_materno].join(" ")
   end
+  def nombre_completo=(nombre)
+    split = nombre.split(" ", 3)
+    self.nombre = split[0]
+    self.apellido_paterno = split[1]
+    self.apellido_materno = split[2]
+  end
 end
 

@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pacientes
+
+  map.resources :pacientes
+
   map.login     "login",  :controller => "user_sessions", :action => "new"
   map.logout    "logout", :controller => "user_sessions", :action => "destroy"
   map.users     "users",  :controller => "users", :action => "index"
