@@ -1,0 +1,40 @@
+<% form_for @paciente do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :ficha %><br />
+    <%= f.text_field :ficha %>
+  </p>
+  <p>
+    <%= f.label :rut %><br />
+    <%= f.text_field :rut %>
+  </p>
+  <p>
+    <%= f.label :fono_fijo %><br />
+    <%= f.text_field :fono_fijo %>
+  </p>
+  <p>
+    <%= f.label :celular %><br />
+    <%= f.text_field :celular %>
+  </p>
+  <p>
+    <%= f.label :mail %><br />
+    <%= f.text_field :mail %>
+  </p>
+  <p>
+    <%= f.label :tipo_paciente_id %><br />
+    <%= f.text_field :tipo_paciente_id %>
+  </p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :apellido_paterno %><br />
+    <%= f.text_field :apellido_paterno %>
+  </p>
+  <p>
+    <%= f.label :apellido_materno %><br />
+    <%= f.text_field :apellido_materno %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

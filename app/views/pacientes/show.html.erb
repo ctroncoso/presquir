@@ -1,0 +1,44 @@
+<% title "Paciente" %>
+
+<p>
+  <strong>Ficha:</strong>
+  <%=h @paciente.ficha %>
+</p>
+<p>
+  <strong>Rut:</strong>
+  <%=h @paciente.rut %>
+</p>
+<p>
+  <strong>Fono Fijo:</strong>
+  <%=h @paciente.fono_fijo %>
+</p>
+<p>
+  <strong>Celular:</strong>
+  <%=h @paciente.celular %>
+</p>
+<p>
+  <strong>Mail:</strong>
+  <%=h @paciente.mail %>
+</p>
+<p>
+  <strong>Tipo Paciente:</strong>
+  <%=h @paciente.tipo_paciente_id %>
+</p>
+<p>
+  <strong>Nombre:</strong>
+  <%=h @paciente.nombre %>
+</p>
+<p>
+  <strong>Apellido Paterno:</strong>
+  <%=h @paciente.apellido_paterno %>
+</p>
+<p>
+  <strong>Apellido Materno:</strong>
+  <%=h @paciente.apellido_materno %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_paciente_path(@paciente) %> |
+  <%= link_to "Destroy", @paciente, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", pacientes_path %>
+</p>

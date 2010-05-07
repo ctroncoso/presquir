@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tipo_pacientes
+
   map.resources :pacientes
 
   map.resources :pacientes

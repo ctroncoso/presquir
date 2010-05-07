@@ -1,0 +1,21 @@
+one:
+  ficha: 1
+  rut: MyString
+  fono_fijo: MyString
+  celular: MyString
+  mail: MyString
+  tipo_paciente_id: 1
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+
+two:
+  ficha: 1
+  rut: MyString
+  fono_fijo: MyString
+  celular: MyString
+  mail: MyString
+  tipo_paciente_id: 1
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
