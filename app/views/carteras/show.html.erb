@@ -1,0 +1,69 @@
+<% title "Cartera" %>
+
+<p>
+  <strong>Codigo:</strong>
+  <%=h @cartera.codigo %>
+</p>
+<p>
+  <strong>Empresa:</strong>
+  <%=h @cartera.empresa %>
+</p>
+<p>
+  <strong>Rut:</strong>
+  <%=h @cartera.rut %>
+</p>
+<p>
+  <strong>Holding:</strong>
+  <%=h @cartera.holding %>
+</p>
+<p>
+  <strong>Agencia:</strong>
+  <%=h @cartera.agencia %>
+</p>
+<p>
+  <strong>Contacto:</strong>
+  <%=h @cartera.contacto %>
+</p>
+<p>
+  <strong>Cargo:</strong>
+  <%=h @cartera.cargo %>
+</p>
+<p>
+  <strong>Telefono:</strong>
+  <%=h @cartera.telefono %>
+</p>
+<p>
+  <strong>Telefono Celular:</strong>
+  <%=h @cartera.telefono_celular %>
+</p>
+<p>
+  <strong>Direccion:</strong>
+  <%=h @cartera.direccion %>
+</p>
+<p>
+  <strong>Comuna:</strong>
+  <%=h @cartera.comuna %>
+</p>
+<p>
+  <strong>Referencia Dir:</strong>
+  <%=h @cartera.referencia_dir %>
+</p>
+<p>
+  <strong>Estado:</strong>
+  <%=h @cartera.estado %>
+</p>
+<p>
+  <strong>Cartera:</strong>
+  <%=h @cartera.cartera %>
+</p>
+<p>
+  <strong>Afiliada:</strong>
+  <%=h @cartera.afiliada %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_cartera_path(@cartera) %> |
+  <%= link_to "Destroy", @cartera, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", carteras_path %>
+</p>
+

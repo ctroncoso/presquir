@@ -1,0 +1,22 @@
+<% title "Carteras" %>
+
+<table>
+  <tr>
+    <th>Empresa</th>
+    <th>Cartera</th>
+    <th>Afiliada</th>
+  </tr>
+  <% for cartera in @carteras %>
+    <tr>
+      <td><%=h cartera.empresa %></td>
+      <td><%=h cartera.cartera %></td>
+      <td><%=h cartera.afiliada %></td>
+      <td><%= link_to "Show", cartera %></td>
+      <td><%= link_to "Edit", edit_cartera_path(cartera) %></td>
+      <td><%= link_to "Destroy", cartera, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @carteras %>
+<p><%= link_to "New Cartera", new_cartera_path %></p>
+

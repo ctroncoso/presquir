@@ -1,16 +1,17 @@
 class TipoPacientesController < ApplicationController
+  before_filter :check_admin
   def index
     @tipo_pacientes = TipoPaciente.all
   end
-  
+
   def show
     @tipo_paciente = TipoPaciente.find(params[:id])
   end
-  
+
   def new
     @tipo_paciente = TipoPaciente.new
   end
-  
+
   def create
     @tipo_paciente = TipoPaciente.new(params[:tipo_paciente])
     if @tipo_paciente.save
@@ -20,11 +21,11 @@ class TipoPacientesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @tipo_paciente = TipoPaciente.find(params[:id])
   end
-  
+
   def update
     @tipo_paciente = TipoPaciente.find(params[:id])
     if @tipo_paciente.update_attributes(params[:tipo_paciente])
@@ -34,7 +35,7 @@ class TipoPacientesController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @tipo_paciente = TipoPaciente.find(params[:id])
     @tipo_paciente.destroy
@@ -42,3 +43,4 @@ class TipoPacientesController < ApplicationController
     redirect_to tipo_pacientes_url
   end
 end
+

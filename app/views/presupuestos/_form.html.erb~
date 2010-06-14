@@ -1,3 +1,8 @@
+
+<%content_for :head do %>
+    <%= stylesheet_link_tag 'autocomplete.css'%>
+<%end%>
+
 <% form_for @presupuesto do |f| %>
   <%= f.error_messages %>
   <p>
@@ -6,15 +11,22 @@
   </p>
   <p>
     <%= f.label :fecha_inicio_gestion %><br />
-    <%= f.date_select :fecha_inicio_gestion %>
+    <%= f.date_select :fecha_inicio_gestion  %>
   </p>
   <p>
-    <%= f.label :ejecutiva %><br />
+    <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
     <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
   </p>
   <p>
     <%= f.label :plazo_gestion %><br />
     <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
+  </p>
+  <p>
+    <%= f.label :empresa %> <br />
+    <%= text_field_with_auto_complete :presupuesto, :cartera_empresa ,{},{:url => carteras_path(:js, :format=>'js'), :method => :get, :with =>"'search='+element.value", :min_chars => 3, :skip_style => true }%>  </p>
+  <p>
+    <%= f.label "Pendiente?" %>
+    <%= f.checkbox :pending %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

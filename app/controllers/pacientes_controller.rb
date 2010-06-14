@@ -2,15 +2,16 @@ class PacientesController < ApplicationController
   def index
     @pacientes = Paciente.all
   end
-  
+
   def show
     @paciente = Paciente.find(params[:id])
   end
-  
+
   def new
     @paciente = Paciente.new
+    @tipo_pacientes=TipoPaciente.all
   end
-  
+
   def create
     @paciente = Paciente.new(params[:paciente])
     if @paciente.save
@@ -20,11 +21,12 @@ class PacientesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @paciente = Paciente.find(params[:id])
+    @tipo_pacientes=TipoPaciente.all
   end
-  
+
   def update
     @paciente = Paciente.find(params[:id])
     if @paciente.update_attributes(params[:paciente])
@@ -34,7 +36,7 @@ class PacientesController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @paciente = Paciente.find(params[:id])
     @paciente.destroy
@@ -42,3 +44,4 @@ class PacientesController < ApplicationController
     redirect_to pacientes_url
   end
 end
+

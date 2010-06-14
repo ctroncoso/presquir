@@ -1,5 +1,22 @@
 class Presupuesto < ActiveRecord::Base
-  attr_accessible :fecha_emision, :fecha_inicio_gestion, :ejecutiva_id, :plazo_gestion
+  attr_accessible :fecha_emision,
+            :fecha_inicio_gestion,
+            :ejecutiva_id,
+            :plazo_gestion,
+            :user_id,
+            :cartera_empresa
   belongs_to :user
+  has_one :paciente
+  belongs_to :cartera
+
+  named_scope :pendientes, :conditions => {:pending => true}
+
+  def cartera_empresa
+      cartera.empresa if cartera
+  end
+
+  def cartera_empresa=(empresa)
+    self.cartera = Cartera.find_or_create_by_empresa(empresa) unless empresa.blank?
+  end
 end
 

@@ -28,7 +28,12 @@ end
 
   def check_login
     if !current_user
-      redirect_to login_path
+      redirect_to login_path, :alert => "argg!!!"
+    end
+  end
+  def check_admin
+    if !admin?
+      redirect_to :root
     end
   end
 

@@ -1,0 +1,33 @@
+one:
+  codigo: MyString
+  empresa: MyString
+  rut: MyString
+  holding: MyString
+  agencia: MyString
+  contacto: MyString
+  cargo: MyString
+  telefono: MyString
+  telefono_celular: MyString
+  direccion: MyString
+  comuna: MyString
+  referencia_dir.: MyString
+  estado: MyString
+  cartera: false
+  afiliada: false
+
+two:
+  codigo: MyString
+  empresa: MyString
+  rut: MyString
+  holding: MyString
+  agencia: MyString
+  contacto: MyString
+  cargo: MyString
+  telefono: MyString
+  telefono_celular: MyString
+  direccion: MyString
+  comuna: MyString
+  referencia_dir.: MyString
+  estado: MyString
+  cartera: false
+  afiliada: false

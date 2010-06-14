@@ -8,5 +8,9 @@
     <%= f.label :link %><br />
     <%= f.text_field :link %>
   </p>
+  <p>
+    <%= f.label :security_level %><br />
+    <%= f.select :security_level, (1..100).collect {|n| [n,n]} %>  </p>
   <p><%= f.submit %></p>
 <% end %>
+

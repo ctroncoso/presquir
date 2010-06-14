@@ -24,6 +24,8 @@ Rails::Initializer.run do |config|
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
   config.gem "authlogic"
+  config.gem "searchlogic"
+  config.gem "will_paginate"
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.

@@ -1,12 +1,12 @@
 <% form_for @paciente do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :ficha %><br />
-    <%= f.text_field :ficha %>
-  </p>
-  <p>
     <%= f.label :rut %><br />
     <%= f.text_field :rut %>
+  </p>
+  <p>
+    <%= f.label :ficha %><br />
+    <%= f.text_field :ficha %>
   </p>
   <p>
     <%= f.label :fono_fijo %><br />
@@ -21,8 +21,8 @@
     <%= f.text_field :mail %>
   </p>
   <p>
-    <%= f.label :tipo_paciente_id %><br />
-    <%= f.text_field :tipo_paciente_id %>
+    <%= f.label :tipo_paciente_id, 'Tipo paciente' %><br />
+    <%= f.collection_select :tipo_paciente_id, @tipo_pacientes, :id, :clase %>
   </p>
   <p>
     <%= f.label :nombre %><br />
@@ -38,3 +38,4 @@
   </p>
   <p><%= f.submit %></p>
 <% end %>
+

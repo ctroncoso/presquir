@@ -9,11 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100507040714) do
+ActiveRecord::Schema.define(:version => 20100614150706) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carteras", :force => true do |t|
+    t.string   "codigo"
+    t.string   "empresa"
+    t.string   "rut"
+    t.string   "holding"
+    t.string   "agencia"
+    t.string   "contacto"
+    t.string   "cargo"
+    t.string   "telefono"
+    t.string   "telefono_celular"
+    t.string   "direccion"
+    t.string   "comuna"
+    t.string   "referencia_dir"
+    t.string   "estado"
+    t.boolean  "cartera"
+    t.boolean  "afiliada"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "empresas", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +70,14 @@ ActiveRecord::Schema.define(:version => 20100507040714) do
     t.date     "fecha_inicio_gestion"
     t.integer  "user_id"
     t.integer  "plazo_gestion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cartera_id"
+    t.boolean  "pending"
+  end
+
+  create_table "tipo_pacientes", :force => true do |t|
+    t.string   "clase"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

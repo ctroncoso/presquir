@@ -1,18 +1,25 @@
-<% title "Presupuestos" %>
-
+<% title "Presupuestos"%>
+<hr />
+<%- if admin? -%>
+    <%=link_to "Todos",:controller => 'presupuestos'%> |
+    <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true, :mine => false%> |
+<%- end -%>
+<%=link_to "Solo los mios",:controller => 'presupuestos', :pending=> false, :mine => true%> |
+<%=link_to "Solo mis pendientes",:controller => 'presupuestos', :pending=> true, :mine => true%>
+<hr />
 <table>
   <tr>
     <th>Fecha Emision</th>
     <th>Fecha Inicio Gestion</th>
     <th>Ejecutiva</th>
-    <th>Plazo Gestion</th>
+    <th>Pendiente?</th>
   </tr>
   <% for presupuesto in @presupuestos %>
     <tr>
       <td><%=h presupuesto.fecha_emision %></td>
       <td><%=h presupuesto.fecha_inicio_gestion %></td>
       <td><%=h presupuesto.user.nombre_completo %></td>
-      <td><%=h presupuesto.plazo_gestion %></td>
+      <td><%=h presupuesto.pending ? "Si" : "No" %></td>
       <td><%= link_to "Show", presupuesto %></td>
       <td><%= link_to "Edit", edit_presupuesto_path(presupuesto) %></td>
       <td><%= link_to "Destroy", presupuesto, :confirm => 'Are you sure?', :method => :delete %></td>
