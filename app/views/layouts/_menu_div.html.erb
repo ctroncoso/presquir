@@ -1,7 +1,8 @@
-  <ul id="dashboard">
+<div id = "dashboard">
+  <ul>
     <% for item in menulist -%>
       <li><%= link_to_unless_current item.title, item.link %></li>
     <% end -%>
   </ul>
-  <br />
+</div>
 

@@ -1,33 +1,37 @@
 <% title "Presupuestos"%>
 <hr />
+
 <%- if admin? -%>
     <%=link_to "Todos",:controller => 'presupuestos'%> |
-    <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true, :mine => false%> |
+    <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true%> |
 <%- end -%>
-<%=link_to "Solo los mios",:controller => 'presupuestos', :pending=> false, :mine => true%> |
-<%=link_to "Solo mis pendientes",:controller => 'presupuestos', :pending=> true, :mine => true%>
-<br />
-<%=@p%>
+<%=link_to "Solo los mios",:controller => 'presupuestos', :pending=> false, :user_id => current_user.id%> |
+<%=link_to "Solo mis pendientes",:controller => 'presupuestos', :pending=> true, :user_id => current_user.id%>
 <hr />
-<table>
-  <tr>
-    <th>Fecha Emision</th>
-    <th>Fecha Inicio Gestion</th>
-    <th>Ejecutiva</th>
-    <th>Pendiente?</th>
+<table border="1" cellspacing="0"  width="600px">
+  <tr style="background-color: #DDDDDD;">
+    <th align="left">Fecha Limite</th>
+    <th align="left">Ejecutiva/o</th>
+    <th align="left">Paciente</th>
+    <th align="left">Empresa</th>
+    <th align="left">Pendiente?</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% for presupuesto in @presupuestos %>
     <tr>
-      <td><%=h presupuesto.fecha_emision %></td>
-      <td><%=h presupuesto.fecha_inicio_gestion %></td>
-      <td><%=h presupuesto.user.nombre_completo %></td>
+      <td><%=h presupuesto.deadline %></td>
+      <td><%= link_to presupuesto.user.nombre, presupuestos_path(:user_id => presupuesto.user) %></td>
+      <td><%=h presupuesto.paciente.nombre_completo unless presupuesto.paciente.nil? %></td>
+      <td><%=h presupuesto.cartera_empresa unless presupuesto.cartera_empresa.nil? %></td>
       <td><%=h presupuesto.pending ? "Si" : "No" %></td>
-      <td><%= link_to "Show", presupuesto %></td>
-      <td><%= link_to "Edit", edit_presupuesto_path(presupuesto) %></td>
-      <td><%= link_to "Destroy", presupuesto, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Ver", presupuesto %></td>
+      <td><%= link_to "Editar", edit_presupuesto_path(presupuesto) %></td>
+      <td><%= link_to "Eliminar", presupuesto, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Presupuesto", new_presupuesto_path %></p>
+<p><%= link_to "New Presupuesto", new_presupuesto_path if admin?%></p>
 

@@ -6,4 +6,19 @@ module PresupuestosHelper
     }
     list.join
   end
+
+  def validate_rut(rut)
+    r,dv=rut.split("-")
+    a=0
+    0.upto(7).each_with_index do |k,v|
+        p=((k % 6)+2) * r.reverse[v,1].to_i
+        a+= p
+    end
+    o = 11- (a % 11)
+
+    return o  == dv.to_i if o < 10
+    return true if o==10 && dv.downcase == "k"
+    false
+  end
 end
+

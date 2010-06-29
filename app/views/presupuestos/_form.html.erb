@@ -1,33 +1,18 @@
 
 <%content_for :head do %>
     <%= stylesheet_link_tag 'autocomplete.css'%>
-<%end%>
+    <%= javascript_include_tag :defaults %>
+    <%= calendar_date_select_includes :style => 'orange', :locale=> 'es'%>
+<% end %>
+
+<a href="#" onclick="$$('.opened_link').each(function(i) {i.show()}); $$('.closed_link').each(function(i) {i.hide()});">Abrir todo</a>
+<a href="#" onclick="$$('.opened_link').each(function(i) {i.hide()}); $$('.closed_link').each(function(i) {i.show()});">Ocultar todo</a>
 
 <% form_for @presupuesto do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :fecha_emision %><br />
-    <%= f.date_select :fecha_emision %>
-  </p>
-  <p>
-    <%= f.label :fecha_inicio_gestion %><br />
-    <%= f.date_select :fecha_inicio_gestion  %>
-  </p>
-  <p>
-    <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
-    <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
-  </p>
-  <p>
-    <%= f.label :plazo_gestion %><br />
-    <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
-  </p>
-  <p>
-    <%= f.label :empresa %> <br />
-    <%= text_field_with_auto_complete :presupuesto, :cartera_empresa ,{},{:url => carteras_path(:js, :format=>'js'), :method => :get, :with =>"'search='+element.value", :min_chars => 3, :skip_style => true }%>  </p>
-  <p>
-    <%= f.label "Pendiente?" %>
-    <%= f.check_box :pending %>
-  </p>
+    <%= render "form_general", :f => f %>
+    <br />
+    <%= render "form_paciente" , :f => f %>
   <p><%= f.submit %></p>
 <% end %>
 

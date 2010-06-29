@@ -1,0 +1,49 @@
+<%content_for :head do %>
+    <%= stylesheet_link_tag 'autocomplete.css'%>
+    <%= javascript_include_tag :defaults %>
+    <%= calendar_date_select_includes :style => 'orange', :locale=> 'es'%>
+<% end %>
+
+<% form_for @presupuesto do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+        <td><%= f.label :fecha_emision %> </td>
+        <td>:  <%= f.text_field :fecha_emision, :disabled => true%></td>
+    </tr>
+    <tr>
+        <td><%= f.label :fecha_inicio_gestion %></td>
+        <td>:  <%= f.text_field :fecha_inicio_gestion, :disabled => true  %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :ejecutiva, "Ejecutiva/o" %></td>
+        <td>:  <%= f.text_field :ejecutiva_nombre_completo, :disabled => true %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :plazo_gestion %></td>
+        <td>:  <%= f.text_field :deadline, :disabled => true %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :empresa %></td>
+        <td>:  <%= f.text_field :cartera_empresa, :disabled => true %></td>
+    </tr>
+  </table>
+  <%f.fields_for :paciente do |p|%>
+    <table>
+      <tr>
+          <td><%= p.label :ficha%></td>
+          <td>:  <%= p.text_field :ficha%></td>
+      </tr>
+      <tr>
+          <td><%= p.label :fono_fijo%></td>
+          <td>:  <%= p.text_field :fono_fijo%></td>
+      </tr>
+      <tr>
+          <td><%= p.label :celular%></td>
+          <td>:  <%= p.text_field :celular%></td>
+      </tr>
+    </table>
+  <% end %>
+  <p><%= f.submit %></p>
+<% end %>
+

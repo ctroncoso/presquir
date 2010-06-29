@@ -1,8 +1,9 @@
-<% title "Edit Presupuesto" %>
+<% title "Modificar Presupuestos" %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'ejecutiva' if !admin? %>
+<%= render :partial => 'form' if admin? %>
 
 <p>
-  <%= link_to "Show", @presupuesto %> |
-  <%= link_to "View All", presupuestos_path %>
+  <%= link_to "Volver", presupuestos_path %>
 </p>
+

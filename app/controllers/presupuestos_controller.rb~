@@ -1,19 +1,12 @@
 class PresupuestosController < ApplicationController
   before_filter :check_login
   def index
-    mine = params[:mine]
-    mine = true  if !admin?
-    pending = params[:pending]
-
-    @p="mine and pending" if(mine && pending)
-    @p="mine and not pending" if(mine && !pending)
-    @p="not mine and not pending" if(!mine && !pending)
-    @p="not mine and pending" if(!mine && pending)
-
-    @presupuestos = current_user.presupuestos.pendientes if(mine && pending)
-    @presupuestos = current_user.presupuestos            if(mine && !pending)
-    @presupuestos = Presupuesto.all                      if(!mine && !pending)
-    @presupuestos = Presupuesto.pendientes               if(!mine && pending)
+    if params[:user_id]
+        @presupuestos = User.find(params[:user_id]).presupuestos
+    else
+        @presupuestos = User.find(:all).map(&:presupuestos).flatten
+    end
+    @presupuestos = @presupuestos.select{|p| p.pending == true}         if params[:pending]
   end
 
   def show
@@ -22,6 +15,7 @@ class PresupuestosController < ApplicationController
 
   def new
     @presupuesto = Presupuesto.new
+    @presupuesto.paciente=Paciente.new
     @users=User.find(:all)
     @today=Date.today
   end
@@ -38,6 +32,7 @@ class PresupuestosController < ApplicationController
 
   def edit
     @presupuesto = Presupuesto.find(params[:id])
+#    @presupuesto.paciente=Paciente.new if @presupuesto.paciente.nil?
     @users=User.find(:all)
   end
 

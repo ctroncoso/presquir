@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    session['return_path'] = request.referer
     @user = User.find(params[:id])
   end
 
@@ -30,7 +31,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Usuario Actualizado con éxito."
-      redirect_to @user
+      if session['return_path']
+        redirect_to session['return_path']
+      else
+        redirect_to :root
+      end
     else
       render :action => 'edit'
     end

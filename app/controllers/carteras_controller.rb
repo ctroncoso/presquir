@@ -1,7 +1,7 @@
 class CarterasController < ApplicationController
   def index
     if params[:search]
-        @carteras = Cartera.all(:conditions => ['empresa like ?',"%#{params[:search]}%" ])
+        @carteras = Cartera.all(:conditions => ['empresa like ?',"%#{params[:search]}%" ], :order =>'empresa')
     else
         @carteras = Cartera.paginate :page => params[:page], :per_page => 20, :order=>'empresa'
     end
