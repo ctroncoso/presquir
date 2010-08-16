@@ -1,0 +1,26 @@
+<% title "Fonasa Mles" %>
+<% form_tag fonasa_mles_path, :method=> 'get' do%>
+    <p>
+        <%= text_field_tag :search, params[:search]%>
+        <%= submit_tag :search, :name=> nil %>
+    </p>
+<% end%>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Descripcion</th>
+  </tr>
+  <% for fonasa_mle in @fonasa_mles %>
+    <tr>
+      <td><%=h fonasa_mle.codigo %></td>
+      <td><%=h fonasa_mle.descripcion %></td>
+      <td><%= link_to "Show", fonasa_mle %></td>
+      <td><%= link_to "Edit", edit_fonasa_mle_path(fonasa_mle) %></td>
+      <td><%= link_to "Destroy", fonasa_mle, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<p><%= will_paginate @fonasa_mles, :previous_label => "&laquo; Anterior", :next_label => "Siguiente &raquo;"%></p>
+<p><%= link_to "New Fonasa Mle", new_fonasa_mle_path %></p>
+

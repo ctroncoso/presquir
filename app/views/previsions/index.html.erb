@@ -1,0 +1,20 @@
+<% title "Previsions" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Isapre</th>
+  </tr>
+  <% for prevision in @previsions %>
+    <tr>
+      <td><%=h prevision.name %></td>
+      <td><%=h prevision.isapre %></td>
+      <td><%= link_to "Show", prevision %></td>
+      <td><%= link_to "Edit", edit_prevision_path(prevision) %></td>
+      <td><%= link_to "Destroy", prevision, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Prevision", new_prevision_path %></p>
+

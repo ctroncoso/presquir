@@ -1,0 +1,12 @@
+<% form_for @fonasa_mle do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :codigo %><br />
+    <%= f.text_field :codigo %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

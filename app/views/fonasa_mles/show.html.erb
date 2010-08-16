@@ -1,0 +1,16 @@
+<% title "Fonasa Mle" %>
+
+<p>
+  <strong>Codigo:</strong>
+  <%=h @fonasa_mle.codigo %>
+</p>
+<p>
+  <strong>Descripcion:</strong>
+  <%=h @fonasa_mle.descripcion %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_fonasa_mle_path(@fonasa_mle) %> |
+  <%= link_to "Destroy", @fonasa_mle, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", fonasa_mles_path %>
+</p>

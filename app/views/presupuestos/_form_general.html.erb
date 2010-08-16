@@ -1,44 +1,35 @@
-  <div class="closed_link" id="general_handler" style="display:none; background-color: #DDDDDD;">
-    <h2 style="display:inline">Datos Generales</h2> <a href="#" onclick="$(this).up().toggle(); $(this).up().next().toggle();">mostrar</a>
-  </div>
   <div class="opened_link" id="general" style="background-color: #DDDDDD;">
-    <h2 style="display:inline">Datos Generales</h2> <a href="#" onclick="$(this).up().toggle(); $(this).up().previous().toggle();">ocultar</a>
+    <h2 style="display:inline">Datos Generales</h2>
     <hr />
     <table>
 	    <tr>
 		    <td style="vertical-align:bottom">
-                <p>
-                  <%= f.label :fecha_emision %><br />
-                  <%= f.calendar_date_select :fecha_emision, :popup => "force" %>
-                </p>
+              <%= f.label :fecha_emision %><br />
+              <%= f.calendar_date_select :fecha_emision, :popup => "force" %>
 		    </td>
 		    <td style="vertical-align:bottom">
-                <p>
-                  <%= f.label :fecha_inicio_gestion %><br />
-                  <%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
-                </p>
+              <%= f.label :fecha_inicio_gestion %><br />
+              <%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
+            </td>
+		    <td style="vertical-align:bottom">
+              <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
+              <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
 		    </td>
 	    </tr>
 	    <tr>
 		    <td style="vertical-align:bottom">
-                <p>
-                  <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
-                  <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
-                </p>
+              <%= f.label :plazo_gestion %><br />
+              <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
 		    </td>
+            <td>
+              <%= f.label :prevision_id,"Prevision" %> <br />
+              <%= f.collection_select :prevision_id, Prevision.all, :id, :name %>
+            </td>
 		    <td style="vertical-align:bottom">
-                <p>
-                  <%= f.label :plazo_gestion %><br />
-                  <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
-                </p>
+                <%= f.label "Pendiente?" %>
+                <%= f.check_box :pending %>
 		    </td>
-		    <td style="vertical-align:bottom">
-                <p>
-                    <%= f.label "Pendiente?" %>
-                    <%= f.check_box :pending %>
-                </p>
-		    </td>
-	    </tr>
+		</tr>
     </table>
   </div>
 

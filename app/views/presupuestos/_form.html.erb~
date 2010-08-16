@@ -1,17 +1,43 @@
 
 <%content_for :head do %>
     <%= stylesheet_link_tag 'autocomplete.css'%>
+    <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.2.custom.css'%>
     <%= javascript_include_tag :defaults %>
     <%= calendar_date_select_includes :style => 'orange', :locale=> 'es'%>
-<% end %>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.8.2.custom.min.js' %>
 
-<a href="#" onclick="$$('.opened_link').each(function(i) {i.show()}); $$('.closed_link').each(function(i) {i.hide()});">Abrir todo</a>
-<a href="#" onclick="$$('.opened_link').each(function(i) {i.hide()}); $$('.closed_link').each(function(i) {i.show()});">Ocultar todo</a>
+<% end %>
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+     $j(document).ready(function(){
+        $j("#tabs").tabs();
+        $j("#fonasa_mle_ids").autocomplete({
+            source: "/fonasa_mles?format=js",
+            minLength: 3,
+            select: function(event,ui) {
+                $j("#fonasa_id").val(ui.item.id);
+            }
+        })
+
+     });
+</script>
+<a href="#" onclick="$j('.opened_link').show('slow'); $j('.closed_link').hide('slow');">Mostrar todo</a>
+<a href="#" onclick="$j('.closed_link').show('slow'); $j('.opened_link').hide('slow');">Ocultar todo</a>
 
 <% form_for @presupuesto do |f| %>
   <%= f.error_messages %>
-    <%= render "form_general", :f => f %>
-    <%= render "form_paciente" , :f => f %>
+
+    <div id="tabs">
+        <ul>
+	        <li><a href="#general">General</a></li>
+	        <li><a href="#paciente">Paciente</a></li>
+	        <li><a href="#prestaciones">Prestaciones</a></li>
+        </ul>
+        <%= render "form_general", :f => f %>
+        <%= render "form_paciente" , :f => f %>
+        <%= render "form_prestaciones", :f => f %>
+    </div>
   <p><%= f.submit %></p>
 <% end %>
 

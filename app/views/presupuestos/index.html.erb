@@ -2,13 +2,17 @@
 <hr />
 
 <%- if admin? -%>
-    <%=link_to "Todos",:controller => 'presupuestos'%> |
-    <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true%> |
+    <%=link_to "Todos",:controller => 'presupuestos'-%> |
+    <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true-%> |
 <%- end -%>
+<p>
+
+</p>
+<hr />
 <%=link_to "Solo los mios",:controller => 'presupuestos', :pending=> false, :user_id => current_user.id%> |
 <%=link_to "Solo mis pendientes",:controller => 'presupuestos', :pending=> true, :user_id => current_user.id%>
 <hr />
-<table border="1" cellspacing="0"  width="100%">
+<table rules="all" >
   <tr style="background-color: #DDDDDD;">
     <th align="left">Fecha Limite</th>
     <th align="left">Ejecutiva/o</th>

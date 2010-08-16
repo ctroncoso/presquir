@@ -9,9 +9,13 @@ class Presupuesto < ActiveRecord::Base
   belongs_to :user
   belongs_to :paciente
   belongs_to :cartera
+  belongs_to :prevision
+  has_many :itemizacions
+  has_many :fonasa_mles, :through => :itemizacions
 
   named_scope :pendientes, :conditions => {:pending => true}
-  accepts_nested_attributes_for :paciente
+  accepts_nested_attributes_for :paciente, :prevision
+
 
   def cartera_empresa
       cartera.empresa if cartera
@@ -29,8 +33,5 @@ class Presupuesto < ActiveRecord::Base
     fecha_inicio_gestion + plazo_gestion.days
   end
 
-  def paciente_nombre_completo
-      paciente.nombre_completo
-  end
 end
 

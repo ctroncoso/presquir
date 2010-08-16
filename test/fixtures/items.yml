@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  presupuesto_id: 1
+  fonasa_mle_id: 1
+
+two:
+  presupuesto_id: 1
+  fonasa_mle_id: 1

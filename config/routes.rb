@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fonasa_mles
+
+  map.resources :previsions
+
   map.resources :carteras
 
   map.login     "login",  :controller => "user_sessions", :action => "new"

@@ -1,0 +1,13 @@
+<% title "Prevision" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @prevision.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_prevision_path(@prevision) %> |
+  <%= link_to "Destroy", @prevision, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", previsions_path %>
+</p>
+

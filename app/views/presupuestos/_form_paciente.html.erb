@@ -1,79 +1,56 @@
-  <div class="closed_link" id="paciente_handler" style="background-color: #DDDDDD;">
-    <h2 style="display:inline">Datos del Paciente</h2> <a href="#" onclick="$(this).up().toggle(); $(this).up().next().toggle();">mostrar</a>
-  </div>
-  <div class="opened_link" id="paciente" style="display:none; background-color: #DDDDDD;">
-    <h2 style="display:inline">Datos del Paciente</h2> <a href="#" onclick="$(this).up().toggle(); $(this).up().previous().toggle();">ocultar</a>
+  <div class="opened_link" id="paciente" style="background-color: #DDDDDD;">
+    <h2 style="display:inline">Datos del Paciente</h2>
     <hr />
     <%f.fields_for :paciente do |p|%>
         <table>
 	        <tr>
 		        <td>
-                    <p>
-                        <%= p.label :rut%> <br />
-                        <%= p.text_field :rut%>
-                    </p>
+                    <%= p.label :rut%> <br />
+                    <%= p.text_field :rut%>
 		        </td>
 		        <td>
-                    <p>
-                        <%= p.label :nombre%> <br />
-                        <%= p.text_field :nombre%>
-                    </p>
+                    <%= p.label :nombre%> <br />
+                    <%= p.text_field :nombre%>
 		        </td>
 	        </tr>
 	        <tr>
 		        <td>
-                    <p>
-                        <%= p.label :apellido_paterno%> <br />
-                        <%= p.text_field :apellido_paterno%>
-                    </p>
+                    <%= p.label :apellido_paterno%> <br />
+                    <%= p.text_field :apellido_paterno%>
 		        </td>
 		        <td>
-                    <p>
-                        <%= p.label :apellido_materno%> <br />
-                        <%= p.text_field :apellido_materno%>
-                    </p>
+                    <%= p.label :apellido_materno%> <br />
+                    <%= p.text_field :apellido_materno%>
 		        </td>
 	        </tr>
 	        <tr>
 		        <td>
-                    <p>
-                        <%= p.label :ficha%> <br />
-                        <%= p.text_field :ficha%>
-                    </p>
+                    <%= p.label :ficha%> <br />
+                    <%= p.text_field :ficha%>
 		        </td>
 		        <td>
-                    <p>
-                        <%= p.label :fono_fijo%> <br />
-                        <%= p.text_field :fono_fijo%>
-                    </p>
+                    <%= p.label :fono_fijo%> <br />
+                    <%= p.text_field :fono_fijo%>
 		        </td>
 	        </tr>
 	        <tr>
 		        <td>
-                    <p>
-                        <%= p.label :celular%> <br />
-                        <%= p.text_field :celular%>
-                    </p>
+                    <%= p.label :celular%> <br />
+                    <%= p.text_field :celular%>
 		        </td>
 		        <td>
-                    <p>
-                        <%= p.label :mail%> <br />
-                        <%= p.text_field :mail%>
-                    </p>
+                    <%= p.label :mail%> <br />
+                    <%= p.text_field :mail%>
 		        </td>
 	        </tr>
 	        <tr>
 		        <td>
-                    <p>
-                        <%= p.label :tipo_paciente_id, "Tipo Paciente"%> <br />
-                        <%= p.collection_select :tipo_paciente_id, TipoPaciente.all, :id, :clase %>
-                    </p>
+                    <%= p.label :tipo_paciente_id, "Tipo Paciente"%> <br />
+                    <%= p.collection_select :tipo_paciente_id, TipoPaciente.all, :id, :clase %>
 		        </td>
 		        <td>
-                    <p>
-                      <%= f.label :empresa %> <br />
-                      <%= text_field_with_auto_complete :presupuesto, :cartera_empresa ,{},{:url => carteras_path(:js, :format=>'js'), :method => :get, :with =>"'search='+element.value", :min_chars => 3, :skip_style => true }%>
-                    </p>
+                  <%= f.label :empresa %> <br />
+                  <%= text_field_with_auto_complete :presupuesto, :cartera_empresa ,{},{:url => carteras_path(:js, :format=>'js'), :method => :get, :with =>"'search='+element.value", :min_chars => 3, :skip_style => true }%>
 		        </td>
 	        </tr>
         </table>
