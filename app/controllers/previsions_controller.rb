@@ -1,4 +1,5 @@
 class PrevisionsController < ApplicationController
+  before_filter :check_login
   def index
     @previsions = Prevision.all
   end

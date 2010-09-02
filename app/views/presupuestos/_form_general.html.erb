@@ -5,15 +5,19 @@
 	    <tr>
 		    <td style="vertical-align:bottom">
               <%= f.label :fecha_emision %><br />
-              <%= f.calendar_date_select :fecha_emision, :popup => "force" %>
+              <%= f.calendar_date_select :fecha_emision, :popup => "force"%>
 		    </td>
 		    <td style="vertical-align:bottom">
               <%= f.label :fecha_inicio_gestion %><br />
               <%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
             </td>
 		    <td style="vertical-align:bottom">
-              <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
-              <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
+		      <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
+		      <%if admin?%>
+			<%= f.collection_select :user_id, @users, :id, :nombre_completo %>
+		      <%else%>
+			<%= text_field_tag 'nombre_completo', @presupuesto.user.nombre_completo, {:size=>60, :disabled=> true}%>
+		      <%end%>
 		    </td>
 	    </tr>
 	    <tr>

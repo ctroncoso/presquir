@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  before_filter :check_login
   def index
     @menus = Menu.all
   end

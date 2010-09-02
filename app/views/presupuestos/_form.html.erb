@@ -13,7 +13,7 @@
      $j(document).ready(function(){
         $j("#tabs").tabs();
         $j("#fonasa_mle_ids").autocomplete({
-            source: "/fonasa_mles?format=js",
+	    source: "<%=fonasa_mles_path(:format=>:js)%>",
             minLength: 3,
             select: function(event,ui) {
                 $j("#fonasa_id").val(ui.item.id);

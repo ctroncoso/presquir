@@ -1,4 +1,5 @@
 class CarterasController < ApplicationController
+  before_filter :check_login
   def index
     if params[:search]
         @carteras = Cartera.all(:conditions => ['empresa like ?',"%#{params[:search]}%" ], :order =>'empresa')

@@ -1,7 +1,6 @@
 <% title "Modificar Presupuestos" %>
 
-<%= render :partial => 'ejecutiva' if !admin? %>
-<%= render :partial => 'form' if admin? %>
+<%= render :partial => 'form' %>
 
 <p>
   <%= link_to "Volver", presupuestos_path %>

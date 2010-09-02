@@ -1,26 +1,33 @@
 <% title "Fonasa Mles" %>
-<% form_tag fonasa_mles_path, :method=> 'get' do%>
-    <p>
-        <%= text_field_tag :search, params[:search]%>
-        <%= submit_tag :search, :name=> nil %>
-    </p>
-<% end%>
+<%content_for :head do %>
+    <%= stylesheet_link_tag 'autocomplete.css'%>
+    <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.2.custom.css'%>
+    <%= javascript_include_tag :defaults %>
+    <%= calendar_date_select_includes :style => 'orange', :locale=> 'es'%>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.8.2.custom.min.js' %>
 
-<table>
+<% end %>
+
+<%= label_tag "Procedimientos" %><br />
+<%= text_field_tag :fonasa_mle_ids, nil, :size => 20 %> |
+<%= text_field_tag :fonasa_id %>
+<p><%= will_paginate @fonasa_mles, :previous_label => "&laquo; Anterior", :next_label => "Siguiente &raquo;"%></p>
+<table> 
   <tr>
     <th>Codigo</th>
     <th>Descripcion</th>
   </tr>
+
   <% for fonasa_mle in @fonasa_mles %>
     <tr>
       <td><%=h fonasa_mle.codigo %></td>
-      <td><%=h fonasa_mle.descripcion %></td>
+      <td width=66666600><%=h fonasa_mle.descripcion %></td>
       <td><%= link_to "Show", fonasa_mle %></td>
       <td><%= link_to "Edit", edit_fonasa_mle_path(fonasa_mle) %></td>
       <td><%= link_to "Destroy", fonasa_mle, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-<p><%= will_paginate @fonasa_mles, :previous_label => "&laquo; Anterior", :next_label => "Siguiente &raquo;"%></p>
 <p><%= link_to "New Fonasa Mle", new_fonasa_mle_path %></p>
 

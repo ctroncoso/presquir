@@ -1,10 +1,11 @@
 class FonasaMlesController < ApplicationController
+  before_filter :check_login
   def index
     if params[:term]
         @fonasa_mles = FonasaMle.all(:conditions => ['descripcion like ?',"%#{params[:term]}%" ], :order =>'descripcion')
     else
         @fonasa_mles = FonasaMle.paginate   :page => params[:page],
-                                            :per_page => 20,
+                                            :per_page => 15,
                                             :conditions => ['descripcion like?', "%#{params[:search]}%"],
                                             :order => :descripcion
     end
