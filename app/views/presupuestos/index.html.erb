@@ -1,13 +1,10 @@
 <% title "Presupuestos"%>
-<hr />
 
 <%- if admin? -%>
+    <hr />
     <%=link_to "Todos",:controller => 'presupuestos'-%> |
     <%=link_to "Pendientes", :controller=>'presupuestos', :pending=> true-%> |
 <%- end -%>
-<p>
-
-</p>
 <hr />
 <%=link_to "Solo los mios",:controller => 'presupuestos', :pending=> false, :user_id => current_user.id%> |
 <%=link_to "Solo mis pendientes",:controller => 'presupuestos', :pending=> true, :user_id => current_user.id%>
@@ -30,12 +27,12 @@
       <td><%=h presupuesto.paciente.nombre_completo unless presupuesto.paciente.nil? %></td>
       <td><%=h presupuesto.cartera_empresa unless presupuesto.cartera_empresa.nil? %></td>
       <td><%=h presupuesto.pending ? "Si" : "No" %></td>
-      <td><%= link_to "Ver", presupuesto %></td>
+      <td><%= link_to "Seguimiento", presupuesto %></td>
       <td><%= link_to "Editar", edit_presupuesto_path(presupuesto) %></td>
-      <td><%= link_to "Eliminar", presupuesto, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Eliminar", presupuesto, :confirm => 'Seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Presupuesto", new_presupuesto_path if admin?%></p>
+<p><%= link_to "Nuevo Presupuesto", new_presupuesto_path if admin?%></p>
 

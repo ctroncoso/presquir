@@ -1,24 +1,22 @@
 <% title "Presupuesto" %>
 
 <p>
-  <strong>Fecha Emision:</strong>
-  <%=h @presupuesto.fecha_emision %>
-</p>
-<p>
-  <strong>Fecha Inicio Gestion:</strong>
-  <%=h @presupuesto.fecha_inicio_gestion %>
-</p>
-<p>
-  <strong>Ejecutiva:</strong>
-</p>
-<p>
-  <strong>Plazo Gestion:</strong>
-  <%=h @presupuesto.plazo_gestion %>
+  <strong>Nombre Paciente:</strong> <%=h @presupuesto.paciente.nombre_completo%> <br />
+  <strong>Telefono:</strong>  <%=h @presupuesto.paciente.fono_fijo %> <br />
+  <strong>Celular:</strong>  <%=h @presupuesto.paciente.celular %><br />
+  <strong>Ejecutiva:</strong> <%= h @presupuesto.user.nombre_completo %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_presupuesto_path(@presupuesto) %> |
-  <%= link_to "Destroy", @presupuesto, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", presupuestos_path %>
-</p>
+<h2>Seguimiento</h2>
+<div id='seguimiento'>
+  <%= render :partial => @presupuesto.seguimientos %>
+</div>
 
+<hr />
+<% form_for [@presupuesto, Seguimiento.new] do |f| %>
+  <p>
+    <%= f.label :comentario, "Nuevo Seguimiento"%> <br />
+    <%= f.text_area :comentario, :rows => 5%>
+  </p>
+  <p> <%= f.submit "Nuevo Seguimiento"%> </p>
+<%end%> 

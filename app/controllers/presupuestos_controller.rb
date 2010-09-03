@@ -1,6 +1,7 @@
 class PresupuestosController < ApplicationController
   before_filter :check_login
   def index
+    params[:user_id] = current_user.id if !admin?
     if params[:user_id]
         @presupuestos = User.find(params[:user_id]).presupuestos
     else
@@ -34,6 +35,8 @@ class PresupuestosController < ApplicationController
     @presupuesto = Presupuesto.find(params[:id])
     @presupuesto.paciente=Paciente.new if @presupuesto.paciente.nil?
     @users=User.find(:all)
+    @tab=params[:tab] || 0
+    3.times{@presupuesto.fonasa_mles.build}
   end
 
   def update

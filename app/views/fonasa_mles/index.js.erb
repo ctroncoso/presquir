@@ -1,2 +1,2 @@
-<%= @fonasa_mles.map { |i| {"value" => i.descripcion, "id" => i.codigo}}.to_json -%>
+<%= @fonasa_mles.map { |i| {"label"=>[i.codigo, i.descripcion.strip].join("-"),"value" => i.descripcion.strip, "id" => i.codigo}}.to_json -%>
 

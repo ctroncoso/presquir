@@ -1,0 +1,20 @@
+<h1>Editing seguimiento</h1>
+
+<% form_for(@seguimiento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :presupuesto_id %><br />
+    <%= f.text_field :presupuesto_id %>
+  </p>
+  <p>
+    <%= f.label :comentario %><br />
+    <%= f.text_area :comentario %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @seguimiento %> |
+<%= link_to 'Back', seguimientos_path %>

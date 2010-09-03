@@ -4,6 +4,7 @@ class Presupuesto < ActiveRecord::Base
   belongs_to :paciente
   belongs_to :cartera
   belongs_to :prevision
+  has_many :seguimientos
   has_many :itemizacions
   has_many :fonasa_mles, :through => :itemizacions
   accepts_nested_attributes_for :paciente, :prevision
@@ -24,7 +25,7 @@ class Presupuesto < ActiveRecord::Base
   end
 
   def deadline
-    fecha_inicio_gestion + plazo_gestion.days
+    fecha_inicio_gestion + plazo_gestion.days if fecha_inicio_gestion
   end
 
 end

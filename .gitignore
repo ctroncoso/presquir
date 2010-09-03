@@ -1,5 +1,6 @@
 *~
+*csv
 log/*.log
 tmp/**/*
 db/*.sqlite3
-
+data.yml

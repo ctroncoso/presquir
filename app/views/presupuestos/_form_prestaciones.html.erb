@@ -1,17 +1,12 @@
     <div class="opened_link" id="prestaciones" style="background-color: #DDDDDD;">
       <h2 style="display:inline">Procedimientos Quirúrgicos</h2>
       <hr />
-      <table>
-        <tr>
-          <td style="vertical-align:bottom">
-              <%= f.label :fonasa_mles, "Procedimientos" %><br />
-              <%= text_field_tag :fonasa_mle_ids, nil, :size => 20 %> |
-              <%= text_field_tag :fonasa_id %>
-          </td>
-	      <td style="vertical-align:bottom">
-          </td>
-        </tr>
-
-      </table>
+      <% for prestacion in @presupuesto.fonasa_mles %>
+	<% fields_for "presupuesto[prestaciones][]", prestacion do |p| %>
+		ID: <%= p.text_field :id %>
+		Prestación: <%= text_field_tag :fonasa_mle_ids, nil, :size => 60 %> 
+		Cod.Fonasa: <%= text_field_tag :fonasa_id %> <br />
+	<%end%>
+      <%end%>
     </div>
 

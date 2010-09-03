@@ -1,15 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :seguimientos
   map.resources :fonasa_mles
-
   map.resources :previsions
-
   map.resources :carteras
-
   map.login     "login",  :controller => "user_sessions", :action => "new"
   map.logout    "logout", :controller => "user_sessions", :action => "destroy"
   map.resources :pacientes, :tipo_pacientes
   map.resources :menus, :announcements, :user_sessions
-  map.resources :presupuestos
+  map.resources :presupuestos, :has_many => :seguimientos
   map.resources :users, :has_many => :presupuestos
   # The priority is based upon order of creation: first created -> highest priority.
 

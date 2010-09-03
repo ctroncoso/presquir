@@ -5,11 +5,19 @@
 	    <tr>
 		    <td style="vertical-align:bottom">
               <%= f.label :fecha_emision %><br />
-              <%= f.calendar_date_select :fecha_emision, :popup => "force"%>
+		      <%if admin?%>
+              		<%= f.calendar_date_select :fecha_emision, :popup => "force"%>
+		      <%else%>
+			<%= f.text_field :fecha_emision, {:disabled => true, :size=>10}%>
+		      <%end%>
 		    </td>
 		    <td style="vertical-align:bottom">
               <%= f.label :fecha_inicio_gestion %><br />
-              <%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
+	      <%if admin?%>
+		<%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
+	      <%else%>
+		<%= f.text_field :fecha_inicio_gestion, {:disabled => true, :size=>10}%>
+	      <%end%>
             </td>
 		    <td style="vertical-align:bottom">
 		      <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
@@ -27,7 +35,7 @@
 		    </td>
             <td>
               <%= f.label :prevision_id,"Prevision" %> <br />
-              <%= f.collection_select :prevision_id, Prevision.all, :id, :name %>
+              <%= f.collection_select :prevision_id, Prevision.all(:order=>'name asc'), :id, :name %>
             </td>
 		    <td style="vertical-align:bottom">
                 <%= f.label "Pendiente?" %>
