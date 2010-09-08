@@ -7,7 +7,7 @@ class PresupuestosController < ApplicationController
     else
         @presupuestos = User.find(:all).map(&:presupuestos).flatten
     end
-    @presupuestos = @presupuestos.select{|p| p.pending == true}         if params[:pending]
+    @presupuestos = @presupuestos.select{|p| (p.estado.nil? || p.estado == 0)}         if params[:pending]
   end
 
   def show
@@ -17,8 +17,11 @@ class PresupuestosController < ApplicationController
   def new
     @presupuesto = Presupuesto.new
     @presupuesto.paciente=Paciente.new
+    @presupuesto.build_intencion
+    @presupuesto.fecha_emision=Date.today
     @users=User.find(:all)
     @today=Date.today
+    @tab=params[:tab] || 0
   end
 
   def create
@@ -34,16 +37,20 @@ class PresupuestosController < ApplicationController
   def edit
     @presupuesto = Presupuesto.find(params[:id])
     @presupuesto.paciente=Paciente.new if @presupuesto.paciente.nil?
+    @presupuesto.build_intencion if @presupuesto.intencion.nil?
     @users=User.find(:all)
     @tab=params[:tab] || 0
-    3.times{@presupuesto.fonasa_mles.build}
   end
 
   def update
     @presupuesto = Presupuesto.find(params[:id])
     if @presupuesto.update_attributes(params[:presupuesto])
-      flash[:notice] = "Successfully updated presupuesto."
-      redirect_to :presupuestos
+      flash[:notice] = "Presupuesto actualizado."
+      if params[:commit] == "Prestaciones"
+        redirect_to presupuesto_procedimientos_path(@presupuesto)
+      else
+        redirect_to :presupuestos
+      end
     else
       render :action => 'edit'
     end

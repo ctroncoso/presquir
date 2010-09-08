@@ -1,0 +1,29 @@
+<div class="opened_link" id="intencion" style="background-color: #DDDDDD;">
+  <h2 style="display:inline">Intención de Cirugía</h2>
+  <hr />
+  <% f.fields_for :intencion do |p| %>
+    <p>
+      <%= p.label :intencion %>
+      <%= p.select :intencion, %w(Si No), :include_blank => true%><br />
+      <%= p.label :principal %>
+      <%= p.select :principal, ['Atencion', 'Recomendacion', 'Confianza en HTS', 'Confianza en Médico', 'Precio', 'Cubre la Isapre', 'Seguro Complementario', 'Convenio'], :include_blank => true %><br />
+      <%= p.check_box :atencion %>
+      <%= p.label :atencion %><br />
+      <%= p.check_box :recomendacion %>
+      <%= p.label :recomendacion %><br />
+      <%= p.check_box :confianza_hts %>
+      <%= p.label :confianza_hts %><br />
+      <%= p.check_box :confianza_medico %>
+      <%= p.label :confianza_medico %><br />
+      <%= p.check_box :precio %>
+      <%= p.label :precio %><br />
+      <%= p.check_box :isapre %>
+      <%= p.label :isapre %><br />
+      <%= p.check_box :seguro_comp %>
+      <%= p.label :seguro_comp %><br />
+      <%= p.check_box :convenio %>
+      <%= p.label :convenio %><br />
+ 
+   </p>
+  <%end%>
+</div>

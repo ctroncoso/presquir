@@ -2,46 +2,46 @@
     <h2 style="display:inline">Datos Generales</h2>
     <hr />
     <table>
-	    <tr>
-		    <td style="vertical-align:bottom">
-              <%= f.label :fecha_emision %><br />
-		      <%if admin?%>
-              		<%= f.calendar_date_select :fecha_emision, :popup => "force"%>
-		      <%else%>
-			<%= f.text_field :fecha_emision, {:disabled => true, :size=>10}%>
-		      <%end%>
-		    </td>
-		    <td style="vertical-align:bottom">
-              <%= f.label :fecha_inicio_gestion %><br />
-	      <%if admin?%>
-		<%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
-	      <%else%>
-		<%= f.text_field :fecha_inicio_gestion, {:disabled => true, :size=>10}%>
-	      <%end%>
-            </td>
-		    <td style="vertical-align:bottom">
-		      <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
-		      <%if admin?%>
-			<%= f.collection_select :user_id, @users, :id, :nombre_completo %>
-		      <%else%>
-			<%= text_field_tag 'nombre_completo', @presupuesto.user.nombre_completo, {:size=>60, :disabled=> true}%>
-		      <%end%>
-		    </td>
-	    </tr>
-	    <tr>
-		    <td style="vertical-align:bottom">
-              <%= f.label :plazo_gestion %><br />
-              <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
-		    </td>
-            <td>
-              <%= f.label :prevision_id,"Prevision" %> <br />
-              <%= f.collection_select :prevision_id, Prevision.all(:order=>'name asc'), :id, :name %>
-            </td>
-		    <td style="vertical-align:bottom">
-                <%= f.label "Pendiente?" %>
-                <%= f.check_box :pending %>
-		    </td>
-		</tr>
+      <tr>
+        <td style="vertical-align:bottom">
+          <%= f.label :fecha_emision %><br />
+          <%if admin?%>
+            <%= f.calendar_date_select :fecha_emision, :popup => "force"%>
+          <%else%>
+            <%= f.text_field :fecha_emision, {:disabled => true, :size=>10}%>
+          <%end%>
+        </td>
+        <td style="vertical-align:bottom">
+          <%= f.label :fecha_inicio_gestion %><br />
+          <%if admin?%>
+            <%= f.calendar_date_select :fecha_inicio_gestion, :popup => "force"%>
+          <%else%>
+            <%= f.text_field :fecha_inicio_gestion, {:disabled => true, :size=>10}%>
+          <%end%>
+        </td>
+        <td style="vertical-align:bottom">
+          <%= f.label :ejecutiva, "Ejecutiva/o" %><br />
+          <%if admin?%>
+            <%= f.collection_select :user_id, @users, :id, :nombre_completo %>
+          <%else%>
+            <%= text_field_tag 'nombre_completo', @presupuesto.user.nombre_completo, {:size=>60, :disabled=> true}%>
+          <%end%>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align:bottom">
+          <%= f.label :plazo_gestion %><br />
+          <%= select_tag "presupuesto[plazo_gestion]", plazos([30,45])%>
+        </td>
+        <td>
+          <%= f.label :prevision_id,"Prevision" %> <br />
+          <%= f.collection_select :prevision_id, Prevision.all(:order=>'name asc'), :id, :name %>
+        </td>
+        <td style="vertical-align:bottom">
+          <%= f.label "Estado" %>
+          <%= f.select :estado, [["Pendiente",0],["Aceptado",1],["Rechazado",2],["Nulo",99]] %>
+        </td>
+      </tr>
     </table>
   </div>
 

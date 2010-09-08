@@ -3,9 +3,9 @@
       <hr />
       <% for prestacion in @presupuesto.fonasa_mles %>
 	<% fields_for "presupuesto[prestaciones][]", prestacion do |p| %>
-		ID: <%= p.text_field :id %>
-		Prestación: <%= text_field_tag :fonasa_mle_ids, nil, :size => 60 %> 
-		Cod.Fonasa: <%= text_field_tag :fonasa_id %> <br />
+          ID: <%= p.text_field :id ,:size=> 10%>
+          Prestación: <%= text_field_tag :fonasa_mle_ids, nil, :size => 60 %> 
+          Cod.Fonasa: <%= text_field_tag :fonasa_id %> <br />
 	<%end%>
       <%end%>
     </div>

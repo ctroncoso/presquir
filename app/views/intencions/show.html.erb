@@ -1,0 +1,52 @@
+<% title "Intencion" %>
+
+<p>
+  <strong>Presupuesto:</strong>
+  <%=h @intencion.presupuesto_id %>
+</p>
+<p>
+  <strong>Intencion:</strong>
+  <%=h @intencion.intencion %>
+</p>
+<p>
+  <strong>Principal:</strong>
+  <%=h @intencion.principal %>
+</p>
+<p>
+  <strong>Atencion:</strong>
+  <%=h @intencion.atencion %>
+</p>
+<p>
+  <strong>Recomendacion:</strong>
+  <%=h @intencion.recomendacion %>
+</p>
+<p>
+  <strong>Confianza Hts:</strong>
+  <%=h @intencion.confianza_hts %>
+</p>
+<p>
+  <strong>Confianza Medico:</strong>
+  <%=h @intencion.confianza_medico %>
+</p>
+<p>
+  <strong>Precio:</strong>
+  <%=h @intencion.precio %>
+</p>
+<p>
+  <strong>Isapre:</strong>
+  <%=h @intencion.isapre %>
+</p>
+<p>
+  <strong>Seguro Comp:</strong>
+  <%=h @intencion.seguro_comp %>
+</p>
+<p>
+  <strong>Convenio:</strong>
+  <%=h @intencion.convenio %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_intencion_path(@intencion) %> |
+  <%= link_to "Destroy", @intencion, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", intencions_path %>
+</p>

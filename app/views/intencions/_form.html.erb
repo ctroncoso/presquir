@@ -1,0 +1,29 @@
+<% form_for @intencion do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :presupuesto_id %>
+    <%= f.text_field :presupuesto_id %><br />
+    <%= f.label :intencion %>
+    <%= f.text_field :intencion %><br />
+    <%= f.label :principal %>
+    <%= f.text_field :principal %><br />
+    
+    <%= f.check_box :atencion %>
+    <%= f.label :atencion %><br />
+    <%= f.check_box :recomendacion %>
+    <%= f.label :recomendacion %><br />
+    <%= f.check_box :confianza_hts %>
+    <%= f.label :confianza_hts %><br />
+    <%= f.check_box :confianza_medico %>
+    <%= f.label :confianza_medico %><br />
+    <%= f.check_box :precio %>
+    <%= f.label :precio %><br />
+    <%= f.check_box :isapre %>
+    <%= f.label :isapre %><br />
+    <%= f.check_box :seguro_comp %>
+    <%= f.label :seguro_comp %><br />
+    <%= f.check_box :convenio %>
+    <%= f.label :convenio %><br />
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

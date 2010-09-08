@@ -26,7 +26,7 @@
       <td><%= link_to presupuesto.user.nombre, presupuestos_path(:user_id => presupuesto.user) %></td>
       <td><%=h presupuesto.paciente.nombre_completo unless presupuesto.paciente.nil? %></td>
       <td><%=h presupuesto.cartera_empresa unless presupuesto.cartera_empresa.nil? %></td>
-      <td><%=h presupuesto.pending ? "Si" : "No" %></td>
+      <td><%=h presupuesto.pendiente ? "Si" : "No" %></td>
       <td><%= link_to "Seguimiento", presupuesto %></td>
       <td><%= link_to "Editar", edit_presupuesto_path(presupuesto) %></td>
       <td><%= link_to "Eliminar", presupuesto, :confirm => 'Seguro?', :method => :delete %></td>

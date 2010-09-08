@@ -4,12 +4,13 @@ class Presupuesto < ActiveRecord::Base
   belongs_to :paciente
   belongs_to :cartera
   belongs_to :prevision
+  has_one :intencion
   has_many :seguimientos
   has_many :itemizacions
   has_many :fonasa_mles, :through => :itemizacions
-  accepts_nested_attributes_for :paciente, :prevision
+  accepts_nested_attributes_for :paciente, :prevision, :intencion
 
-  named_scope :pendientes, :conditions => {:pending => true}
+  named_scope :pendientes, :conditions => {:estado => [nil, 0]}
 
 
   def cartera_empresa
@@ -26,6 +27,10 @@ class Presupuesto < ActiveRecord::Base
 
   def deadline
     fecha_inicio_gestion + plazo_gestion.days if fecha_inicio_gestion
+  end
+
+  def pendiente
+    estado.nil? || estado == 0
   end
 
 end

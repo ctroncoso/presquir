@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100902095653) do
+ActiveRecord::Schema.define(:version => 20100908094135) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -46,6 +46,22 @@ ActiveRecord::Schema.define(:version => 20100902095653) do
   create_table "fonasa_mles", :force => true do |t|
     t.integer  "codigo"
     t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "intencions", :force => true do |t|
+    t.integer  "presupuesto_id"
+    t.string   "intencion"
+    t.string   "principal"
+    t.integer  "atencion"
+    t.integer  "recomendacion"
+    t.integer  "confianza_hts"
+    t.integer  "confianza_medico"
+    t.integer  "precio"
+    t.integer  "isapre"
+    t.integer  "seguro_comp"
+    t.integer  "convenio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20100902095653) do
     t.boolean  "pending"
     t.integer  "paciente_id"
     t.integer  "prevision_id"
+    t.integer  "estado",               :default => 0
   end
 
   create_table "previsions", :force => true do |t|

@@ -24,17 +24,17 @@
 </script>
 <% form_for @presupuesto do |f| %>
   <%= f.error_messages %>
-
     <div id="tabs">
         <ul>
-	        <li><a href="#general">General</a></li>
-	        <li><a href="#paciente">Paciente</a></li>
-	        <li><a href="#prestaciones">Prestaciones</a></li>
+          <li><a href="#general">General</a></li>
+          <li><a href="#paciente">Paciente</a></li>
+          <li><a href="#intencion">Intencion</a></li>
         </ul>
         <%= render "form_general", :f => f %>
         <%= render "form_paciente" , :f => f %>
-        <%= render "form_prestaciones", :f => f %>
-    </div>
-  <p><%= f.submit "Salir y Guardar Cambios" %></p>
+        <%= render "form_intencion" , :f => f %>
+
+    </div>  
+    <p><%= f.submit("Guardar y Volver a Listado") %> <%= f.submit("Prestaciones") %> </p>
 <% end %>
 

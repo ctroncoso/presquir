@@ -1,0 +1,37 @@
+<% title "Intencions" %>
+
+<table>
+  <tr>
+    <th>Presupuesto</th>
+    <th>Intencion</th>
+    <th>Principal</th>
+    <th>Atencion</th>
+    <th>Recomendacion</th>
+    <th>Confianza Hts</th>
+    <th>Confianza Medico</th>
+    <th>Precio</th>
+    <th>Isapre</th>
+    <th>Seguro Comp</th>
+    <th>Convenio</th>
+  </tr>
+  <% for intencion in @intencions %>
+    <tr>
+      <td><%=h intencion.presupuesto_id %></td>
+      <td><%=h intencion.intencion %></td>
+      <td><%=h intencion.principal %></td>
+      <td><%=h intencion.atencion %></td>
+      <td><%=h intencion.recomendacion %></td>
+      <td><%=h intencion.confianza_hts %></td>
+      <td><%=h intencion.confianza_medico %></td>
+      <td><%=h intencion.precio %></td>
+      <td><%=h intencion.isapre %></td>
+      <td><%=h intencion.seguro_comp %></td>
+      <td><%=h intencion.convenio %></td>
+      <td><%= link_to "Show", intencion %></td>
+      <td><%= link_to "Edit", edit_intencion_path(intencion) %></td>
+      <td><%= link_to "Destroy", intencion, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Intencion", new_intencion_path %></p>

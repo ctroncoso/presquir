@@ -1,0 +1,25 @@
+one:
+  presupuesto_id: 1
+  intencion: MyString
+  principal: MyString
+  atencion: false
+  recomendacion: false
+  confianza_hts: false
+  confianza_medico: false
+  precio: false
+  isapre: false
+  seguro_comp: false
+  convenio: false
+
+two:
+  presupuesto_id: 1
+  intencion: MyString
+  principal: MyString
+  atencion: false
+  recomendacion: false
+  confianza_hts: false
+  confianza_medico: false
+  precio: false
+  isapre: false
+  seguro_comp: false
+  convenio: false
