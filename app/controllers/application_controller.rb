@@ -7,9 +7,8 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-end
 
-
+  helper_method :current_user, :admin?, :check_admin, :check_login
   private
 
   def current_user_session
@@ -28,7 +27,7 @@ end
 
   def check_login
     if !current_user
-      redirect_to login_path, :alert => "argg!!!"
+      redirect_to login_path, :alert => "Debe ingresar al sistema."
     end
   end
   def check_admin
@@ -36,4 +35,5 @@ end
       redirect_to :root
     end
   end
+end
 

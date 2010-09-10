@@ -18,7 +18,8 @@ class PresupuestosController < ApplicationController
     @presupuesto = Presupuesto.new
     @presupuesto.paciente=Paciente.new
     @presupuesto.build_intencion
-    @presupuesto.fecha_emision=Date.today
+    @presupuesto.fecha_inicio_gestion=Date.today
+    @presupuesto.user=current_user
     @users=User.find(:all)
     @today=Date.today
     @tab=params[:tab] || 0

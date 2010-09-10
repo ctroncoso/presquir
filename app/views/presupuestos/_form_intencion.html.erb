@@ -6,7 +6,7 @@
       <%= p.label :intencion %>
       <%= p.select :intencion, %w(Si No), :include_blank => true%><br />
       <%= p.label :principal %>
-      <%= p.select :principal, ['Atencion', 'Recomendacion', 'Confianza en HTS', 'Confianza en Médico', 'Precio', 'Cubre la Isapre', 'Seguro Complementario', 'Convenio'], :include_blank => true %><br />
+      <%= p.select :principal, ['Atencion', 'Recomendacion', 'Confianza en HTS', 'Confianza en Médico', 'Precio HMQ', 'Precio HTS', 'Cubre la Isapre', 'Seguro Complementario', 'Convenio'], :include_blank => true %><br />
       <%= p.check_box :atencion %>
       <%= p.label :atencion %><br />
       <%= p.check_box :recomendacion %>
