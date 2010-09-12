@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
 
   def nombre_completo
-    [nombre, apellido_paterno, apellido_materno].join(" ")
+    [nombre, apellido_paterno, apellido_materno].join(" ") || ""
   end
   def nombre_completo=(nombre)
     split = nombre.split(" ", 3)

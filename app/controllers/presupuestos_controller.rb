@@ -16,11 +16,10 @@ class PresupuestosController < ApplicationController
 
   def new
     @presupuesto = Presupuesto.new
-    @presupuesto.paciente=Paciente.new
+    @presupuesto.build_paciente
     @presupuesto.build_intencion
     @presupuesto.fecha_inicio_gestion=Date.today
-    @presupuesto.user=current_user
-    @users=User.find(:all)
+#    @presupuesto.user=current_user
     @today=Date.today
     @tab=params[:tab] || 0
   end
@@ -29,8 +28,9 @@ class PresupuestosController < ApplicationController
     @presupuesto = Presupuesto.new(params[:presupuesto])
     if @presupuesto.save
       flash[:notice] = "Successfully created presupuesto."
-      redirect_to @presupuesto
+      redirect_to presupuestos_path
     else
+      @tab=params[:tab] || 0
       render :action => 'new'
     end
   end

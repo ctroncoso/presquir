@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = "Usuario ELIMINADO."
-    redirect_to Users_url
+    redirect_to users_url
   end
 
 end

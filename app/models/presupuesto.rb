@@ -10,8 +10,9 @@ class Presupuesto < ActiveRecord::Base
   has_many :fonasa_mles, :through => :itemizacions
   accepts_nested_attributes_for :paciente, :prevision, :intencion
 
-  named_scope :pendientes, :conditions => {:estado => [nil, 0]}
+  named_scope :pendientes, :conditions => {:estado => 0}
 
+  validates_presence_of :fecha_emision
 
   def cartera_empresa
       cartera.empresa if cartera
@@ -32,6 +33,5 @@ class Presupuesto < ActiveRecord::Base
   def pendiente
     estado.nil? || estado == 0
   end
-
 end
 
