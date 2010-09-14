@@ -1,11 +1,21 @@
 one:
   fecha_emision: 2010-04-29
   fecha_inicio_gestion: 2010-04-29
-  ejecutiva: 1
-  plazo_gestion: 1
+  user_id: 1
+  plazo_gestion: 30
+  cartera_id: 1
+  paciente_id: 1
+  prevision_id: 1
+  estado: 0
+  pending: 1
 
 two:
   fecha_emision: 2010-04-29
   fecha_inicio_gestion: 2010-04-29
-  ejecutiva: 1
-  plazo_gestion: 1
+  user_id: 1
+  plazo_gestion: 30
+  cartera_id: 1
+  paciente_id: 1
+  prevision_id: 1
+  estado: 0
+  pending: 1

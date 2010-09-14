@@ -1,7 +1,7 @@
 one:
   name: MyString
-  seguro_complementario: false
+  isapre: 1
 
 two:
   name: MyString
-  seguro_complementario: false
+  isapre: 0

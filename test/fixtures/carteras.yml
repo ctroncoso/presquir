@@ -10,7 +10,7 @@ one:
   telefono_celular: MyString
   direccion: MyString
   comuna: MyString
-  referencia_dir.: MyString
+  referencia_dir: MyString
   estado: MyString
   cartera: false
   afiliada: false
@@ -27,7 +27,7 @@ two:
   telefono_celular: MyString
   direccion: MyString
   comuna: MyString
-  referencia_dir.: MyString
+  referencia_dir: MyString
   estado: MyString
   cartera: false
   afiliada: false
