@@ -4,7 +4,6 @@
             <strong>ADMIN!</strong> |
           <%- end -%>
           <strong><%= current_user.nombre_completo%></strong> |
-          <%= link_to 'Mi Perfil', edit_user_path(current_user.id)  -%> |
           <%= link_to 'Logout', logout_path  -%>
         <%- else -%>
           <%= link_to 'Login', login_path  %>
