@@ -32,6 +32,7 @@ class PresupuestosController < ApplicationController
       flash[:notice] = "Successfully created presupuesto."
       redirect_to @presupuesto
     else
+      @tab=0
       render :action => 'new'
     end
   end
